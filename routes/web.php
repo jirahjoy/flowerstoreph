@@ -14,9 +14,10 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [ProductController::class, 'index']);
+Route::get('/addproduct', [ProductController::class, 'create']);
+Route::get('/editproduct', [ProductController::class, 'edit']);
+Route::get('/products/status/{id}', [ProductController::class, 'updateStatus']);
 Route::resource('products',ProductController::class);
 
 // Route::post('/products', ProductController::class);
